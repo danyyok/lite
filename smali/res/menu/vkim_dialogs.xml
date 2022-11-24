@@ -6,6 +6,10 @@
         android:icon="?im_ic_msgreload"
         app:showAsAction="always" />
     <item
+        android:id="@id/favoritesmsg"
+        android:icon="@drawable/vk_icon_bookmark_outline_28"
+        app:showAsAction="always" />
+    <item
         android:id="@id/add"
         android:icon="?im_ic_write_msg"
         android:title="@string/vkim_write_msg"

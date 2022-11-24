@@ -47,13 +47,51 @@
 
 # virtual methods
 .method public final a(Landroid/view/MenuItem;)Z
-    .locals 2
+    .locals 3
 
     .line 1
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result p1
 
+    const-string v0, "id"
+
+    const-string v1, "favoritesmsg"
+
+    invoke-static {v1, v0}, Lru/vtosters/lite/utils/AndroidUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-ne p1, v0, :cond_3
+
+    const-string v1, "https://vk.me/id"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/vtosters/lite/auth/VKAccountManager;->d()Lcom/vk/auth/api/VKAccount;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/vk/auth/api/VKAccount;->D0()I
+
+    move-result v1
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/vk/common/links/LinkParser;->a(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+
+    goto :goto_0
+
+    :cond_3
     const-string v0, "id"
 
     const-string v1, "msgupdate"
