@@ -3910,6 +3910,7 @@
     <item name="remove_from_cache" type="id" />
     <item name="animation_view" type="id" />
     <item name="msgupdate" type="id" />
+    <item name="favoritesmsg" type="id" />
     <item name="btnfoaf" type="id" />
     <item name="btncopyid" type="id" />
     <item name="download_video" type="id" />
