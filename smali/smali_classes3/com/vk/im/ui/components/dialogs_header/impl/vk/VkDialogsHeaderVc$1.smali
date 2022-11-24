@@ -64,30 +64,7 @@
 
     if-ne p1, v0, :cond_3
 
-    const-string v1, "https://vk.me/id"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Lcom/vtosters/lite/auth/VKAccountManager;->d()Lcom/vk/auth/api/VKAccount;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/vk/auth/api/VKAccount;->D0()I
-
-    move-result v1
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/vk/common/links/LinkParser;->a(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
+    invoke-static {}, Lru/vtosters/lite/hooks/MessagesHook;->openFavorites()V
 
     goto :goto_0
 

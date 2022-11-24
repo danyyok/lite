@@ -1,5 +1,7 @@
 package ru.vtosters.lite.hooks;
 
+import static ru.vtosters.lite.utils.AndroidUtils.getGlobalContext;
+import static ru.vtosters.lite.utils.AccountManagerUtils.getUserId;
 import static ru.vtosters.lite.ui.dialogs.MessageSettings.argDialog;
 import static ru.vtosters.lite.ui.dialogs.MessageSettings.bombCount;
 import static ru.vtosters.lite.ui.dialogs.MessageSettings.isSilentEnabled;
@@ -12,6 +14,8 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.vk.api.internal.MethodCall;
+import com.vk.im.ui.p.ImBridge7;
+import com.vk.im.engine.models.dialogs.DialogExt;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -20,6 +24,10 @@ import ru.vtosters.lite.translators.BaseTranslator;
 import ru.vtosters.lite.utils.LifecycleUtils;
 
 public class MessagesHook {
+    public static void openFavorites() {
+        ImBridge7.a().b().a(getGlobalContext(), getUserId(), (DialogExt) null, "conversation_link", "link");
+    }
+
     public static String injectOwnText(String oldText) {
         if (!autotranslate() || TextUtils.isEmpty(oldText))
             return oldText;
